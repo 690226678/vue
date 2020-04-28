@@ -27,6 +27,13 @@ import * as filters from './filters' // global filters
  * Currently MockJs will be used in the production environment,
  * please remove it before going online ! ! !
  */
+// 封装axios 设置全局变量
+import { post, get, patch, put } from '@/utils/axios'
+Vue.prototype.$post = post
+Vue.prototype.$get = get
+Vue.prototype.$patch = patch
+Vue.prototype.$put = put
+
 if (process.env.NODE_ENV === 'production') {
   const { mockXHR } = require('../mock')
   mockXHR()
